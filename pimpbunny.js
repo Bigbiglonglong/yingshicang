@@ -9,7 +9,7 @@ var rule = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     },
     class_name: '全部最新&4K专区&亚洲&Cosplay&巨乳&自慰&口交&肛交&独家&女同&熟女&少女',
-    class_url: 'videos&4k&asian&cosplay&big-boobs&masturbation&blowjob&anal&exclusive&lesbian&milf&teen',
+    class_url: 'latest&4k&asian&cosplay&big-boobs&masturbation&blowjob&anal&exclusive&lesbian&milf&teen',
     
     推荐: `js:
         let html = getHtml(HOST + '/videos/?page=1');
@@ -33,7 +33,7 @@ var rule = {
     `,
     
     一级: `js:
-        let pUrl = (MY_CATE === 'videos') ? (HOST + '/videos/?page=' + MY_PAGE) : (HOST + '/categories/' + MY_CATE + '/?page=' + MY_PAGE);
+        let pUrl = (MY_CATE === 'latest' || MY_CATE === 'videos') ? (HOST + '/videos/?page=' + MY_PAGE) : (HOST + '/categories/' + MY_CATE + '/?page=' + MY_PAGE);
         let html = getHtml(pUrl);
         let items = [];
         let cards = pdfa2(html, 'div[class*=\"b6m-video\"]');

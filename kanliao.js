@@ -9,7 +9,7 @@ var rule = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     },
     class_name: '全部最新&热点关注&抖音&快手&斗鱼&虎牙&黑料&短视频&网红&ASMR',
-    class_url: 'all&rdgz&dy&ks&douyu&hy&hj&xsp&wh&asmr',
+    class_url: 'latest&rdgz&dy&ks&douyu&hy&hj&xsp&wh&asmr',
     
     推荐: `js:
         let html = getHtml(HOST);
@@ -34,7 +34,7 @@ var rule = {
     `,
     
     一级: `js:
-        let pUrl = (MY_CATE === 'all') ? (HOST + '/page/' + MY_PAGE + '/') : (HOST + '/category/' + MY_CATE + '/' + MY_PAGE + '/');
+        let pUrl = (MY_CATE === 'latest' || MY_CATE === 'all') ? (HOST + '/page/' + MY_PAGE + '/') : (HOST + '/category/' + MY_CATE + '/' + MY_PAGE + '/');
         let html = getHtml(pUrl);
         let items = [];
         let articles = pdfa2(html, 'article');

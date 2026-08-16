@@ -9,7 +9,7 @@ var rule = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     },
     class_name: '全部最新&网曝吃瓜&学生校园&网红黑料&热点事件&每日大瓜&必看大瓜&吃瓜短剧&影视娱乐&每日大赛&猎奇八卦',
-    class_url: 'all&wpcz&xsxy&whhl&rdsj&mrdg&bkdg&cbdj&ysyl&mrds&lldd',
+    class_url: 'latest&wpcz&xsxy&whhl&rdsj&mrdg&bkdg&cbdj&ysyl&mrds&lldd',
     
     推荐: `js:
         let html = getHtml(HOST);
@@ -34,7 +34,7 @@ var rule = {
     `,
     
     一级: `js:
-        let pUrl = (MY_CATE === 'all') ? (HOST + '/page/' + MY_PAGE + '/') : (HOST + '/category/' + MY_CATE + '/' + MY_PAGE + '/');
+        let pUrl = (MY_CATE === 'latest' || MY_CATE === 'all') ? (HOST + '/page/' + MY_PAGE + '/') : (HOST + '/category/' + MY_CATE + '/' + MY_PAGE + '/');
         let html = getHtml(pUrl);
         let items = [];
         let articles = pdfa2(html, 'article');
