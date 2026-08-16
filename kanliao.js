@@ -8,10 +8,10 @@ var rule = {
     headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     },
-    class_name: '全部最新&抖音&快手&斗鱼&虎牙&黑料&短视频&网红&ASMR',
-    class_url: 'rdgz&dy&ks&douyu&hy&hj&xsp&wh&asmr',
-    推荐: 'article;h2&&Text;.post-card&&style;.post-card-info&&Text;a&&href',
-    一级: 'article;h2&&Text;.post-card&&style;.post-card-info&&Text;a&&href',
+    class_name: '🔥全部最新&热点关注&抖音&快手&斗鱼&虎牙&黑料&短视频&网红&ASMR',
+    class_url: 'rdgz&rdgz&dy&ks&douyu&hy&hj&xsp&wh&asmr',
+    推荐: 'article:not(:has(.wraps));h2&&Text;.post-card&&style;.post-card-info&&Text;a&&href',
+    一级: 'article:not(:has(.wraps));h2&&Text;.post-card&&style;.post-card-info&&Text;a&&href',
     二级: '*',
     play_parse: true,
     lazy: `js:

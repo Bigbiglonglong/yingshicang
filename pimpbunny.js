@@ -8,8 +8,8 @@ var rule = {
     headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     },
-    class_name: '全部最新&亚洲&Cosplay&巨乳&自慰&口交&肛交&独家&女同&熟女&少女',
-    class_url: '4k&asian&cosplay&big-boobs&masturbation&blowjob&anal&exclusive&lesbian&milf&teen',
+    class_name: '🔥全部最新&4K专区&亚洲&Cosplay&巨乳&自慰&口交&肛交&独家&女同&熟女&少女',
+    class_url: '4k&4k&asian&cosplay&big-boobs&masturbation&blowjob&anal&exclusive&lesbian&milf&teen',
     推荐: 'div[class*="b6m-video"];img&&alt;img&&data-original;div[class*="duration"]&&Text;a[href*="/videos/"]&&href',
     一级: 'div[class*="b6m-video"];img&&alt;img&&data-original;div[class*="duration"]&&Text;a[href*="/videos/"]&&href',
     二级: '*',

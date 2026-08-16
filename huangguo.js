@@ -8,8 +8,8 @@ var rule = {
     headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     },
-    class_name: '全部最新&AI动漫剧&AI换脸&AI魔改&黄果吃瓜&排行榜',
-    class_url: 'ai-duanju&ai-manju&ai-huanlian&ai-mogai&chigua&ranks/hot',
+    class_name: '🔥全部最新&AI成人短剧&AI动漫剧&AI换脸&AI魔改&黄果吃瓜&排行榜',
+    class_url: 'ai-duanju&ai-duanju&ai-manju&ai-huanlian&ai-mogai&chigua&ranks/hot',
     推荐: '.hg-drama-card;img&&alt;img&&data-src;span[class*="badge"]&&Text;a&&href',
     一级: '.hg-drama-card;img&&alt;img&&data-src;span[class*="badge"]&&Text;a&&href',
     二级: `js:
