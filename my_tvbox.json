@@ -41,6 +41,16 @@
       "quickSearch": 0,
       "filterable": 1,
       "ext": "https://ghproxy.net/https://raw.githubusercontent.com/Bigbiglonglong/yingshicang/main/51cg.js"
+    },
+    {
+      "key": "drpy_huangguo",
+      "name": "🍌 黄果AI",
+      "type": 3,
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 1,
+      "ext": "https://ghproxy.net/https://raw.githubusercontent.com/Bigbiglonglong/yingshicang/main/huangguo.js"
     }
   ]
 }
