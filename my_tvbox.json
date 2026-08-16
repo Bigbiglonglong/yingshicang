@@ -10,7 +10,7 @@
       "searchable": 1,
       "quickSearch": 0,
       "filterable": 1,
-      "ext": "./kanliao.js"
+      "ext": "https://ghproxy.net/https://raw.githubusercontent.com/Bigbiglonglong/yingshicang/main/kanliao.js"
     },
     {
       "key": "drpy_pppporn",
@@ -20,7 +20,7 @@
       "searchable": 1,
       "quickSearch": 0,
       "filterable": 1,
-      "ext": "./pppporn.js"
+      "ext": "https://ghproxy.net/https://raw.githubusercontent.com/Bigbiglonglong/yingshicang/main/pppporn.js"
     }
   ]
 }
