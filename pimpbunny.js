@@ -1,7 +1,7 @@
 var rule = {
     title: 'PimpBunny',
     host: 'https://pimpbunny.com',
-    url: '/categories/fyclass/?page=fypage',
+    url: '/fyclass/?page=fypage',
     searchUrl: '/search/?q=**&page=fypage',
     searchable: 1,
     quickSearch: 0,
@@ -9,7 +9,7 @@ var rule = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     },
     class_name: '🔥全部最新&4K专区&亚洲&Cosplay&巨乳&自慰&口交&肛交&独家&女同&熟女&少女',
-    class_url: '4k&4k&asian&cosplay&big-boobs&masturbation&blowjob&anal&exclusive&lesbian&milf&teen',
+    class_url: 'videos&categories/4k&categories/asian&categories/cosplay&categories/big-boobs&categories/masturbation&categories/blowjob&categories/anal&categories/exclusive&categories/lesbian&categories/milf&categories/teen',
     推荐: 'div[class*="b6m-video"];img&&alt;img&&data-original;div[class*="duration"]&&Text;a[href*="/videos/"]&&href',
     一级: 'div[class*="b6m-video"];img&&alt;img&&data-original;div[class*="duration"]&&Text;a[href*="/videos/"]&&href',
     二级: '*',
