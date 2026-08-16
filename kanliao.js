@@ -21,7 +21,7 @@ var rule = {
             let raw = (typeof art === 'string') ? art : art.toString();
             if (raw.indexOf('热搜HOT') === -1 && raw.indexOf('wraps') === -1 && href && title) {
                 let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
-                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/kl_' + encodeURIComponent(title) + '/360/500');
+                let img = imgMatch ? imgMatch[1] : '';
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,
@@ -45,7 +45,7 @@ var rule = {
             let raw = (typeof art === 'string') ? art : art.toString();
             if (raw.indexOf('热搜HOT') === -1 && raw.indexOf('wraps') === -1 && href && title) {
                 let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
-                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/kl_' + encodeURIComponent(title) + '/360/500');
+                let img = imgMatch ? imgMatch[1] : '';
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,

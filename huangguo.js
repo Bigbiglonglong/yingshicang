@@ -11,52 +11,8 @@ var rule = {
     class_name: '全部最新&AI成人短剧&AI动漫剧&AI换脸&AI魔改&黄果吃瓜&排行榜',
     class_url: 'latest&ai-duanju&ai-manju&ai-huanlian&ai-mogai&chigua&ranks/hot',
     
-    推荐: `js:
-        let html = getHtml(HOST);
-        let items = [];
-        let cards = pdfa2(html, 'div[class*="hg-drama-card"]');
-        cards.forEach(c => {
-            let title = pdfh2(c, 'img&&alt') || pdfh2(c, 'h3&&Text') || pdfh2(c, '.hg-drama-card__title&&Text');
-            let raw = (typeof c === 'string') ? c : c.toString();
-            let imgMatch = raw.match(/data-src=["']([^"']+)["']/i) || raw.match(/src=["']([^"']+)["']/i);
-            let img = imgMatch ? imgMatch[1] : '';
-            let desc = pdfh2(c, 'span[class*="badge"]&&Text') || pdfh2(c, 'span&&Text');
-            let href = pd2(c, 'a&&href', HOST);
-            if (href && title) {
-                items.push({
-                    vod_id: href,
-                    vod_name: title,
-                    vod_pic: img,
-                    vod_remarks: desc
-                });
-            }
-        });
-        VODS = items;
-    `,
-    
-    一级: `js:
-        let pUrl = (MY_CATE === 'latest') ? (HOST + '/?page=' + MY_PAGE) : (HOST + '/' + MY_CATE + '/?page=' + MY_PAGE);
-        let html = getHtml(pUrl);
-        let items = [];
-        let cards = pdfa2(html, 'div[class*="hg-drama-card"]');
-        cards.forEach(c => {
-            let title = pdfh2(c, 'img&&alt') || pdfh2(c, 'h3&&Text') || pdfh2(c, '.hg-drama-card__title&&Text');
-            let raw = (typeof c === 'string') ? c : c.toString();
-            let imgMatch = raw.match(/data-src=["']([^"']+)["']/i) || raw.match(/src=["']([^"']+)["']/i);
-            let img = imgMatch ? imgMatch[1] : '';
-            let desc = pdfh2(c, 'span[class*="badge"]&&Text') || pdfh2(c, 'span&&Text');
-            let href = pd2(c, 'a&&href', pUrl);
-            if (href && title) {
-                items.push({
-                    vod_id: href,
-                    vod_name: title,
-                    vod_pic: img,
-                    vod_remarks: desc
-                });
-            }
-        });
-        VODS = items;
-    `,
+    推荐: '.hg-drama-card;img&&alt;img&&data-src;span[class*="badge"]&&Text;a&&href',
+    一级: '.hg-drama-card;img&&alt;img&&data-src;span[class*="badge"]&&Text;a&&href',
     
     二级: `js:
         let playPageUrl = input.replace('/detail/', '/video/');

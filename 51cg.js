@@ -22,7 +22,7 @@ var rule = {
             if (href && href.indexOf('/archives/') !== -1 && title && title.length > 2 && title.indexOf('App') === -1) {
                 let raw = (typeof art === 'string') ? art : art.toString();
                 let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
-                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/cg_' + encodeURIComponent(title) + '/360/500');
+                let img = imgMatch ? imgMatch[1] : '';
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,
@@ -47,7 +47,7 @@ var rule = {
             if (href && href.indexOf('/archives/') !== -1 && title && title.length > 2 && title.indexOf('App') === -1) {
                 let raw = (typeof art === 'string') ? art : art.toString();
                 let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
-                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/cg_' + encodeURIComponent(title) + '/360/500');
+                let img = imgMatch ? imgMatch[1] : '';
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,
