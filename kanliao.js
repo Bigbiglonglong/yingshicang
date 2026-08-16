@@ -1,7 +1,7 @@
 var rule = {
     title: '看料网',
     host: 'https://www.kanliao16.org',
-    url: '/category/fyclass/page/fypage/',
+    url: '/category/fyclass/fypage/',
     searchUrl: '/?s=**',
     searchable: 1,
     quickSearch: 0,
@@ -12,26 +12,15 @@ var rule = {
     class_url: 'rdgz&dy&ks&douyu&hy&hj&xsp&wh&asmr',
     推荐: 'article;h2&&Text;.post-card&&style;.post-card-info&&Text;a&&href',
     一级: 'article;h2&&Text;.post-card&&style;.post-card-info&&Text;a&&href',
-    二级: {
-        title: 'h1&&Text',
-        tabs: '',
-        lists: 'body&&a:has(.dplayer)'
-    },
+    二级: '*',
     play_parse: true,
     lazy: `js:
         let html = request(input);
-        let m = html.match(/data-config=['"](.*?)['"]/);
+        let m = html.match(/https?:[^\s"'<>]+\.m3u8/);
         let playUrl = '';
         if (m) {
-            try {
-                let cfg = JSON.parse(m[1].replace(/&quot;/g, '"'));
-                playUrl = cfg.video ? cfg.video.url : '';
-            } catch (e) {}
+            playUrl = m[0].replace(/\\\\/g, '');
         }
-        if (!playUrl) {
-            let m2 = html.match(/https?:\\\\?\\/\\\\?\\/[^\\s"'<>]+\\.m3u8/);
-            if (m2) playUrl = m2[0].replace(/\\\\/g, '');
-        }
-        input = { parse: 0, url: playUrl };
+        input = { parse: 0, url: playUrl, header: { 'User-Agent': 'Mozilla/5.0', 'Referer': 'https://www.kanliao16.org/' } };
     `
 };
