@@ -20,7 +20,9 @@ var rule = {
             let title = pdfh2(art, 'h2&&Text') || pdfh2(art, '.post-card-title&&Text');
             title = title.replace(/热搜\\s*HOT/gi, '').replace(/爆料\\s*HOT/gi, '').trim();
             if (href && href.indexOf('/archives/') !== -1 && title && title.length > 2 && title.indexOf('App') === -1) {
-                let img = pd2(art, '.post-card&&style', HOST) || pd2(art, 'img&&src', HOST);
+                let raw = (typeof art === 'string') ? art : art.toString();
+                let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
+                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/cg_' + encodeURIComponent(title) + '/360/500');
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,
@@ -43,7 +45,9 @@ var rule = {
             let title = pdfh2(art, 'h2&&Text') || pdfh2(art, '.post-card-title&&Text');
             title = title.replace(/热搜\\s*HOT/gi, '').replace(/爆料\\s*HOT/gi, '').trim();
             if (href && href.indexOf('/archives/') !== -1 && title && title.length > 2 && title.indexOf('App') === -1) {
-                let img = pd2(art, '.post-card&&style', pUrl) || pd2(art, 'img&&src', pUrl);
+                let raw = (typeof art === 'string') ? art : art.toString();
+                let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
+                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/cg_' + encodeURIComponent(title) + '/360/500');
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,

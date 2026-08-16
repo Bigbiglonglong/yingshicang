@@ -17,7 +17,9 @@ var rule = {
         let cards = pdfa2(html, 'div[class*="hg-drama-card"]');
         cards.forEach(c => {
             let title = pdfh2(c, 'img&&alt') || pdfh2(c, 'h3&&Text') || pdfh2(c, '.hg-drama-card__title&&Text');
-            let img = pd2(c, 'img&&data-src', HOST) || pd2(c, 'img&&src', HOST);
+            let raw = (typeof c === 'string') ? c : c.toString();
+            let imgMatch = raw.match(/data-src=["']([^"']+)["']/i) || raw.match(/src=["']([^"']+)["']/i);
+            let img = imgMatch ? imgMatch[1] : '';
             let desc = pdfh2(c, 'span[class*="badge"]&&Text') || pdfh2(c, 'span&&Text');
             let href = pd2(c, 'a&&href', HOST);
             if (href && title) {
@@ -39,7 +41,9 @@ var rule = {
         let cards = pdfa2(html, 'div[class*="hg-drama-card"]');
         cards.forEach(c => {
             let title = pdfh2(c, 'img&&alt') || pdfh2(c, 'h3&&Text') || pdfh2(c, '.hg-drama-card__title&&Text');
-            let img = pd2(c, 'img&&data-src', pUrl) || pd2(c, 'img&&src', pUrl);
+            let raw = (typeof c === 'string') ? c : c.toString();
+            let imgMatch = raw.match(/data-src=["']([^"']+)["']/i) || raw.match(/src=["']([^"']+)["']/i);
+            let img = imgMatch ? imgMatch[1] : '';
             let desc = pdfh2(c, 'span[class*="badge"]&&Text') || pdfh2(c, 'span&&Text');
             let href = pd2(c, 'a&&href', pUrl);
             if (href && title) {

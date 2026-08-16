@@ -20,7 +20,8 @@ var rule = {
             let href = pd2(art, 'a&&href', HOST);
             let raw = (typeof art === 'string') ? art : art.toString();
             if (raw.indexOf('热搜HOT') === -1 && raw.indexOf('wraps') === -1 && href && title) {
-                let img = pd2(art, '.post-card&&style', HOST) || pd2(art, 'img&&src', HOST);
+                let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
+                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/kl_' + encodeURIComponent(title) + '/360/500');
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,
@@ -43,7 +44,8 @@ var rule = {
             let href = pd2(art, 'a&&href', pUrl);
             let raw = (typeof art === 'string') ? art : art.toString();
             if (raw.indexOf('热搜HOT') === -1 && raw.indexOf('wraps') === -1 && href && title) {
-                let img = pd2(art, '.post-card&&style', pUrl) || pd2(art, 'img&&src', pUrl);
+                let imgMatch = raw.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i) || raw.match(/src=['"]([^'"]+\.(?:jpg|png|webp|jpeg)[^'"]*)['"]/i);
+                let img = imgMatch ? imgMatch[1] : ('https://picsum.photos/seed/kl_' + encodeURIComponent(title) + '/360/500');
                 let desc = pdfh2(art, '.post-card-info&&Text');
                 items.push({
                     vod_id: href,
