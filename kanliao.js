@@ -11,72 +11,72 @@ var rule = {
     class_name: '全部最新&热点关注&抖音&快手&斗鱼&虎牙&黑料&短视频&网红&ASMR',
     class_url: 'all&rdgz&dy&ks&douyu&hy&hj&xsp&wh&asmr',
     
-    推荐: 'js:
+    推荐: `js:
         let html = request(HOST);
         let items = [];
-        let articles = pdfa(html, "article");
+        let articles = pdfa(html, 'article');
         articles.forEach(art => {
-            if (art.indexOf("热搜HOT") === -1 && art.indexOf("wraps") === -1) {
-                let title = pdfh(art, "h2&&Text");
-                let imgMatch = art.match(/background(?:-image)?:\s*url\([\'"]?(.*?)[\'"]?\)/i);
-                let img = imgMatch ? imgMatch[1] : (pdfh(art, "img&&src") || "");
-                let desc = pdfh(art, ".post-card-info&&Text");
-                let url = pdfh(art, "a&&href");
+            if (art.indexOf('热搜HOT') === -1 && art.indexOf('wraps') === -1) {
+                let title = pdfh(art, 'h2&&Text');
+                let imgMatch = art.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i);
+                let img = imgMatch ? imgMatch[1] : (pdfh(art, 'img&&src') || '');
+                let desc = pdfh(art, '.post-card-info&&Text');
+                let url = pdfh(art, 'a&&href');
                 if (url && title) {
                     items.push({ title: title, img: img, desc: desc, url: url });
                 }
             }
         });
         VODS = items;
-    ',
+    `,
     
-    一级: 'js:
-        let pUrl = (MY_CATE === "all") ? (HOST + "/page/" + MY_PAGE + "/") : (HOST + "/category/" + MY_CATE + "/" + MY_PAGE + "/");
+    一级: `js:
+        let pUrl = (MY_CATE === 'all') ? (HOST + '/page/' + MY_PAGE + '/') : (HOST + '/category/' + MY_CATE + '/' + MY_PAGE + '/');
         let html = request(pUrl);
         let items = [];
-        let articles = pdfa(html, "article");
+        let articles = pdfa(html, 'article');
         articles.forEach(art => {
-            if (art.indexOf("热搜HOT") === -1 && art.indexOf("wraps") === -1) {
-                let title = pdfh(art, "h2&&Text");
-                let imgMatch = art.match(/background(?:-image)?:\s*url\([\'"]?(.*?)[\'"]?\)/i);
-                let img = imgMatch ? imgMatch[1] : (pdfh(art, "img&&src") || "");
-                let desc = pdfh(art, ".post-card-info&&Text");
-                let url = pdfh(art, "a&&href");
+            if (art.indexOf('热搜HOT') === -1 && art.indexOf('wraps') === -1) {
+                let title = pdfh(art, 'h2&&Text');
+                let imgMatch = art.match(/background(?:-image)?:\s*url\(['"]?(.*?)['"]?\)/i);
+                let img = imgMatch ? imgMatch[1] : (pdfh(art, 'img&&src') || '');
+                let desc = pdfh(art, '.post-card-info&&Text');
+                let url = pdfh(art, 'a&&href');
                 if (url && title) {
                     items.push({ title: title, img: img, desc: desc, url: url });
                 }
             }
         });
         VODS = items;
-    ',
+    `,
     
-    二级: 'js:
+    二级: `js:
         let html = request(input);
-        let title = pdfh(html, "h1&&Text") || pdfh(html, "title&&Text");
+        let title = pdfh(html, 'h1&&Text') || pdfh(html, 'title&&Text');
         let m3u8s = html.match(/https?:[\\/a-zA-Z0-9_.-]+\.m3u8/g) || [];
         let uniqueUrls = [];
         m3u8s.forEach(u => {
-            let clean = u.replace(/\\\//g, "/").replace(/\\/g, "");
+            let clean = u.replace(/\\\//g, '/').replace(/\\/g, '');
             if (uniqueUrls.indexOf(clean) === -1) {
                 uniqueUrls.push(clean);
             }
         });
         let playList = [];
         if (uniqueUrls.length === 0) {
-            playList.push("立即播放$" + input);
+            playList.push('立即播放$' + input);
         } else {
             uniqueUrls.forEach((u, i) => {
-                let epName = uniqueUrls.length > 1 ? ("第" + (i + 1 < 10 ? "0" + (i + 1) : (i + 1)) + "段") : "立即播放";
-                playList.push(epName + "$" + u);
+                let epName = uniqueUrls.length > 1 ? ('第' + (i + 1 < 10 ? '0' + (i + 1) : (i + 1)) + '段') : '立即播放';
+                playList.push(epName + '$' + u);
             });
         }
         VOD = {
             vod_id: input,
             vod_name: title,
-            vod_play_from: "看料播放专线",
-            vod_play_url: playList.join("#")
+            vod_play_from: '看料播放专线',
+            vod_play_url: playList.join('#')
         };
-    ',
+    `,
     
     play_parse: true,
     lazy: `js:
