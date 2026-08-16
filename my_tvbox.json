@@ -21,6 +21,26 @@
       "quickSearch": 0,
       "filterable": 1,
       "ext": "https://ghproxy.net/https://raw.githubusercontent.com/Bigbiglonglong/yingshicang/main/pppporn.js"
+    },
+    {
+      "key": "drpy_pimpbunny",
+      "name": "🐰 PimpBunny",
+      "type": 3,
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 1,
+      "ext": "https://ghproxy.net/https://raw.githubusercontent.com/Bigbiglonglong/yingshicang/main/pimpbunny.js"
+    },
+    {
+      "key": "drpy_51cg",
+      "name": "🍉 51吃瓜",
+      "type": 3,
+      "api": "https://ghproxy.net/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 1,
+      "ext": "https://ghproxy.net/https://raw.githubusercontent.com/Bigbiglonglong/yingshicang/main/51cg.js"
     }
   ]
 }
